@@ -1,34 +1,27 @@
-
-:root{
-    --color-black: #22242a;    
-}
-
-body {
+body{
     margin: 0;
     padding: 0;
     font-family: "Roboto", sans-serif;
 }
 
-header {
-    background-color: var(
-        --color-black
-    );
+header{
+    background-color: #22242a;
     width: 100%;
     height: 30px;
     padding: 20px;
     position: fixed;
 }
 
-.aria-esquerda h3 {
-    color: #FFF;
+.area-esquerda h3{
+    color: #fff;
     margin: 0;
-    font-size: 22px;
+    font-size: 22;
     font-weight: 900;
     text-transform: uppercase;
 }
 
-.btn-sair {
-    color: #FFF;
+.btn-sair{
+    color: #fff;
     text-decoration: none;
     float: right;
     margin-right: 40px;
@@ -36,29 +29,31 @@ header {
     background-color: #19b3d3;
     font-size: 15px;
     font-weight: 600;
-    border-radius: 2px;
-    padding: 5px 15px;
+    border-radius: 5px;
+    padding: 5px 5px;
     transition-delay: 0.5;
     transition: 0.3s;
 }
 
-.btn-sair:hover {
+.btn-sair:hover{
     background-color: #0D9DBB;
+    padding: 10px 10px ;
+    border-radius: 10px;
 }
 
-.perfil {
+.perfil{
     text-align: center;
 }
 
-.imagem-perfil {
+.imagem-perfil{
     width: 100px;
     height: 100px;
     border-radius: 50px;
     margin-bottom: 10px;
 }
 
-nav {
-    background-color: #2f323A;
+nav{
+    background-color: #2f323a;
     width: 250px;
     height: 100%;
     left: 0;
@@ -68,14 +63,14 @@ nav {
     transition: 0.4s;
 }
 
-nav h4 {
-    color: #FFF;
-    margin-top: 0;
+nav h4{
+    color: #fff;
+    margin-top: 0px;
     margin-bottom: 20px;
 }
 
-nav a {
-    color: #FFF;
+nav a{
+    color: #fff;
     text-decoration: none;
     display: block;
     padding-left: 40px;
@@ -83,49 +78,48 @@ nav a {
     box-sizing: border-box;
 }
 
-nav i {
+nav i{
     margin-right: 10px;
 }
 
-nav a:hover {
-    background-color: #19B3D3;
+nav a:hover{
+    background-color: #0D9DBB;
+    transition: 1.0s;
 }
 
-#chkMenu {
-    display: none;
-}
-
-#btnMenu {
+#btnMenu{
     cursor: pointer;
-    color: #FFF;
+    color: #fff;  
     font-size: 20px;
     position: fixed;
     left: 250px;
-    top: 25px;
+    top: 23px;
 }
 
-#btnMenu:hover {
-    color: #19B3D3;
+#chkMenu{
+    display: none;
 }
 
-#chkMenu:checked~nav {
+#chkMenu:checked~nav{
     left: -190px;
 }
 
-#chkMenu:checked~nav a {
+#chkMenu:checked~nav a{
     font-size: 22px;
     margin-left: 165px;
 }
 
-#chkMenu:checked~nav a span {
+#chkMenu:checked~nav a span{
     display: none;
     transition-delay: 0.8s;
 }
 
-.conteudo {
+.conteudo{
     background-image: url('./fundo.jpg');
     background-position: center;
-    background-repeat: no-repeat;
     height: 100vh;
+    background-repeat: no-repeat;
     background-size: cover;
 }
+
+
