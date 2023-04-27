@@ -4,6 +4,6 @@ const funcionariosController = require("../controller/funcionarios.controller");
 const routes = new express.Router();
 
 routes.get("/", funcionariosController.buscaTodos);
-routes.get("/:id[0-9]", funcionariosController.buscaTodos);
+routes.get("/:id([0-9]+)", funcionariosController.buscaPorId);
 
 module.exports = routes;
