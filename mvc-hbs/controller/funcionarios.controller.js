@@ -1,15 +1,15 @@
 const funcionariosRepository = require("../repository/funcionarios.repository");
 
 module.exports = {
-  buscaTodos: (req, res) => {
-    funcionariosRepository
+  buscaTodos: async (req, res) => {
+    const data = await funcionariosRepository
       .buscaTodos()
-      .then((data) => {
-        res.send(data);
-      })
+      .then((result) => result)
       .catch((error) => {
         res.status(500).send(error);
       });
+
+    res.render("funcionarios", { data });
   },
   buscaPorId: (req, res) => {
     const { id } = req.params;
