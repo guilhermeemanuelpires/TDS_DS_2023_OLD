@@ -8,7 +8,6 @@ module.exports = {
       .catch((error) => {
         res.status(500).send(error);
       });
-
     res.render("funcionarios", { data });
   },
   buscaPorId: (req, res) => {
