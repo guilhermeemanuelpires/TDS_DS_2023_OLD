@@ -1,45 +1,18 @@
-{{!-- <h2>Funcionarios</h2>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>NOME</th>
-        <th>CPF</th>
-        <th>TELEFONE</th>
-        <th>SALARIO</th>
-        <th>STATUS</th>
-    </tr>
+<div class="row">
+    <div class="col-11">
+        <h1 class="display-4">Funcionários</h1>
+    </div>
+    <div class="col-1">
+        <a href="#" class="btn btn-primary" role="button">+</a>
+    </div>
+</div>
 
-    {{#each data}}
-    <tr>
-        <td>{{ID}}</td>
-        <td>{{NOME}}</td>
-        <td>{{CPF}}</td>
-        <td>{{TELEFONE}}</td>
-        <td>R$ {{SALARIO}}</td>
-        {{#if STATUS}}
-        <td style="background-color: greenyellow;">👍</td>
-        {{else}}
-        <td style="background-color: red;">👎</td>
-        {{/if}}
-    </tr>
-    {{/each}}
-
-</table>
-
-<style>
-    table,
-    th,
-    td {
-        border: 1px solid black;
-    }
-</style> --}}
-
-
-<table class="table">
+<table class=" table">
     <thead>
         <tr>
             <th scope="col">Id</th>
             <th scope="col">Nome</th>
+            <th scope="col">CPF</th>
             <th scope="col">Telefone</th>
             <th scope="col">Data Nasc.</th>
             <th scope="col">Salário</th>
@@ -51,13 +24,14 @@
         <tr>
             <td>{{ID}}</td>
             <td>{{NOME}}</td>
-            <td>{{TELEFONE}}</td>
-            <td>{{DATA_NSC}}</td>
+            <td>{{formataCPF CPF}}</td>
+            <td>{{formataTelefone TELEFONE}}</td>
+            <td>{{formataDataNsc DATA_NSC}}</td>
             <td>R$ {{SALARIO}}</td>
             {{#if STATUS}}
-            <td>👍</td>
+            <td style="font-size: 25px;">👍</td>
             {{else}}
-            <td>👎</td>
+            <td style="font-size: 25px;">👎</td>
             {{/if}}
         </tr>
         {{/each}}
