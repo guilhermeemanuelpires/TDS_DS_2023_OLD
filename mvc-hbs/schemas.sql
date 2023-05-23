@@ -2794,3 +2794,6 @@ insert into
     `dependentes` (`funcionario_id`, `id`, `nome`, `telefone`)
 values
     (2, 131, 'Julia dos Teclados', '40028922');
+
+ALTER TABLE
+    FUNCIONARIOS DROP COLUMN SEXO;
