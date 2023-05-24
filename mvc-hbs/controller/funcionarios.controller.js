@@ -29,6 +29,8 @@ module.exports = {
   inserir: (req, res) => {
     const funcionario = req.body;
 
+    console.log(funcionario);
+
     if (funcionario.length > 1) {
       res.send({
         msg: "Número de registros informado é maior que o permitido!",
@@ -75,15 +77,12 @@ module.exports = {
         res.status(500).send(error);
       });
   },
-  buscaTodosDepDoFunc: (req, res) => {
-    funcionariosRepository
+  buscaTodosDepDoFunc: async (req, res) => {
+    const data = await funcionariosRepository
       .buscaTodosDepDoFunc()
-      .then((data) => {
-        res.send(data);
-      })
-      .catch((error) => {
-        res.status(500).send(error);
-      });
+      .then((data) => data);
+
+    res.render("dependentes", { data });
   },
   buscaDepDoFunc: (req, res) => {
     const { id } = req.params;

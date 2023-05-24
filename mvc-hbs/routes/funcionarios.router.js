@@ -12,4 +12,9 @@ routes.get("/dependentes", funcionariosController.buscaTodosDepDoFunc);
 routes.get("/dependentes/:id([0-9]+)", funcionariosController.buscaDepDoFunc);
 routes.post("/dependentes", funcionariosController.inserirDependentes);
 
+//ROTAS RENDER
+routes.get("/cadastro_funcionario", (req, res) =>
+  res.render("cadastro_funcionario")
+);
+
 module.exports = routes;

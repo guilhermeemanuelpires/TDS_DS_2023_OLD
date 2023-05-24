@@ -34,11 +34,6 @@ hbs.registerHelper("formataDataNsc", (data) => {
   return `${dia}/${mes}/${ano}`;
 });
 
-const exemplo = "999.999.999-99";
-
-console.log(
-  "Exemplo antes:" + exemplo + " exemplo depois: " + exemplo.replace(".", "")
-);
 app.listen(8080, (error) => {
   if (error) {
     console.log(error);
