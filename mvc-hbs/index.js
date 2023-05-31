@@ -4,6 +4,7 @@ const routes = require("./routes/index.js");
 
 const app = express();
 
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 hbs.registerPartials(`${__dirname}/views`);

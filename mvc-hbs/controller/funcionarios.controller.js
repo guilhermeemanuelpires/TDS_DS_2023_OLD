@@ -26,28 +26,18 @@ module.exports = {
         res.status(500).send(error);
       });
   },
-  inserir: (req, res) => {
-    const funcionario = req.body;
+  inserir: async (req, res) => {
+    var funcionario = req.body;
 
-    console.log(funcionario);
+    // if ternario para validar o status retornado do formulario cadastro_funcionario.hbs
+    funcionario.STATUS = funcionario.STATUS == "on";
+    funcionario.CPF = funcionario.CPF.replaceAll(".", "").replaceAll("-", "");
 
-    if (funcionario.length > 1) {
-      res.send({
-        msg: "Número de registros informado é maior que o permitido!",
-      });
-    }
+    console.log();
 
-    funcionariosRepository
-      .inserir(funcionario)
-      .then(() => {
-        res.send({
-          msg: "Funcionario inserido, com sucesso!",
-          funcionario,
-        });
-      })
-      .catch((error) => {
-        res.status(500).send(error);
-      });
+    await funcionariosRepository.inserir(funcionario);
+
+    res.redirect("funcionarios");
   },
   deletar: (req, res) => {
     const { id } = req.params;

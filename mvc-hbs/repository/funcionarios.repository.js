@@ -2,7 +2,7 @@ const con = require("../mysql-connection");
 
 module.exports = {
   buscaTodos: () => {
-    return con.select().from("funcionarios");
+    return con.select().from("funcionarios").orderByRaw("id desc");
   },
   buscaPorId: (id) => {
     return con.select().from("funcionarios").where("id", "=", id);
