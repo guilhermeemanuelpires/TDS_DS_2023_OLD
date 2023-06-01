@@ -18,7 +18,8 @@
             <th scope="col">Telefone</th>
             <th scope="col">Data Nasc.</th>
             <th scope="col">Salário</th>
-            <th scope="col">Status </th>
+            <th scope="col">Status</th>
+            <th scope="col">Ação</th>
         </tr>
     </thead>
     <tbody>
@@ -35,6 +36,18 @@
             {{else}}
             <td style="font-size: 25px;">👎</td>
             {{/if}}
+            <td>
+                <div class="btn-toolbar mb-3" role="toolbar">
+                    <div class="btn-group mr-2">
+                        <button type="button" class="btn btn-success">
+                            <span class="material-icons">edit</span>
+                        </button>
+                        <button type="button" class="btn btn-danger">
+                            <span class="material-icons">delete</span>
+                        </button>
+                    </div>
+                </div>
+            </td>
         </tr>
         {{/each}}
 
