@@ -10,21 +10,16 @@ module.exports = {
       });
     res.render("funcionarios", { data });
   },
-  buscaPorId: (req, res) => {
+  buscaPorId: async (req, res) => {
     const { id } = req.params;
 
-    if (!id) {
-      res.status(404).send({ msg: "Parametro id obrigatorio!" });
-    }
+    let data = await funcionariosRepository.buscaPorId(id);
 
-    funcionariosRepository
-      .buscaPorId(id)
-      .then((data) => {
-        res.send(data);
-      })
-      .catch((error) => {
-        res.status(500).send(error);
-      });
+    data = data[0];
+
+    data.DATA_NSC = formataData(data.DATA_NSC);
+
+    res.render("cadastro_funcionario", { data });
   },
   inserir: async (req, res) => {
     var funcionario = req.body;
@@ -109,3 +104,11 @@ module.exports = {
       });
   },
 };
+
+function formataData(end_date) {
+  var ed = new Date(end_date);
+  var d = ed.getDate();
+  var m = ed.getMonth() + 1;
+  var y = ed.getFullYear();
+  return "" + y + "-" + (m <= 9 ? "0" + m : m) + "-" + (d <= 9 ? "0" + d : d);
+}
