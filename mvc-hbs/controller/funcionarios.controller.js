@@ -24,13 +24,19 @@ module.exports = {
   inserir: async (req, res) => {
     var funcionario = req.body;
 
+    console.log(funcionario);
+
     // if ternario para validar o status retornado do formulario cadastro_funcionario.hbs
     funcionario.STATUS = funcionario.STATUS == "on";
     funcionario.CPF = funcionario.CPF.replaceAll(".", "").replaceAll("-", "");
 
-    console.log();
-
-    await funcionariosRepository.inserir(funcionario);
+    if (funcionario.ID == "") {
+      funcionario.ID = null;
+      await funcionariosRepository.inserir(funcionario);
+    } else {
+      const { ID } = funcionario;
+      await funcionariosRepository.atualizar(funcionario, ID);
+    }
 
     res.redirect("funcionarios");
   },
@@ -107,7 +113,7 @@ module.exports = {
 
 function formataData(end_date) {
   var ed = new Date(end_date);
-  var d = ed.getDate();
+  var d = ed.getDay();
   var m = ed.getMonth() + 1;
   var y = ed.getFullYear();
   return "" + y + "-" + (m <= 9 ? "0" + m : m) + "-" + (d <= 9 ? "0" + d : d);
