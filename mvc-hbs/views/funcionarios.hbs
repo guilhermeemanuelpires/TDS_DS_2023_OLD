@@ -42,7 +42,7 @@
                         <button type="button" class="btn btn-success" onclick="editar({{ID}})">
                             <span class="material-icons">edit</span>
                         </button>
-                        <button type="button" class="btn btn-danger">
+                        <button type="button" class="btn btn-danger" onclick="excluir({{ID}})">
                             <span class="material-icons">delete</span>
                         </button>
                     </div>
@@ -57,5 +57,11 @@
 <script>
     function editar(id) {
         window.location.href = `funcionarios/${id}`;
+    }
+    async function excluir(id) {
+        await fetch(`/funcionarios/${id}`,
+            { method: "delete", headers: { "Content-Type": "application/json" } });
+
+        window.location.href = "funcionarios"
     }
 </script>

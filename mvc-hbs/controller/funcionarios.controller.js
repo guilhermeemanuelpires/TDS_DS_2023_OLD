@@ -24,8 +24,6 @@ module.exports = {
   inserir: async (req, res) => {
     var funcionario = req.body;
 
-    console.log(funcionario);
-
     // if ternario para validar o status retornado do formulario cadastro_funcionario.hbs
     funcionario.STATUS = funcionario.STATUS == "on";
     funcionario.CPF = funcionario.CPF.replaceAll(".", "").replaceAll("-", "");
